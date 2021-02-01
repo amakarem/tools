@@ -23,6 +23,7 @@ if (isset($argv[1])) {
             $newrow = PHP_EOL . $keyword;
             while (!feof($file)) {
                 $line = fgets($file);
+                $line = str_replace('","', '|', $line);
                 $line = preg_replace("/\r|\n/", "", $line);
                 $line = str_replace($keyword, $newrow, $line);
                 echo $line;
